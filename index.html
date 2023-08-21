@@ -32,13 +32,13 @@
                     </div>
                 </div>
                 <div>
-                    <img class="w-3/4 md:ml-28" src="./images/Summer 1.png" alt="">
+                    <img class="w-3/4 lg:ml-3 md:ml-28" src="./images/Summer 1.png" alt="">
                 </div>
             </div>
 
         </section>
     </header>
-    <main>
+    <main class="bg-[#F8F8F8]">
         <!-- Product Catagories  -->
         <!-- Sports wear section -->
         <section class="mt-12">
@@ -46,7 +46,7 @@
             <div class="flex flex-col lg:flex-row mt-5 w-11/12 ml-20 gap-3">
                 <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     <!-- card-1 -->
-                    <div class="card  shadow-md p-3">
+                    <div onclick="sportsCap(this)" class="card  shadow-md p-3">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod4.png" alt="Shoes" class="rounded-lg h-28 w-24 " />
                         </figure>
@@ -60,11 +60,11 @@
                                 <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title">Sports Back Cap</h2>
-                            <p>49.00 TK</p>
+                            <p id="cap-price">49.00 TK</p>
                         </div>
                     </div>
                     <!-- card-2 -->
-                    <div class="card  shadow-md p-3">
+                    <div onclick="fullJersey()" class="card  shadow-md p-3">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod5.png" alt="Shoes" class="rounded-lg w-24 h-28 " />
                         </figure>
@@ -78,11 +78,11 @@
                                 <input type="radio" name="rating-2-1" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title">Full Jersey Set</h2>
-                            <p>69.00 TK</p>
+                            <p id="jersey-price">69.00 TK</p>
                         </div>
                     </div>
                     <!-- card-3 -->
-                    <div class="card  shadow-md p-3">
+                    <div onclick="sportsCates()" class="card  shadow-md p-3">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod6.png" alt="Shoes" class="rounded-lg w-24 h-28" />
                         </figure>
@@ -96,38 +96,43 @@
                                 <input type="radio" name="rating-2-3" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title">Sports cates</h2>
-                            <p>159.00 TK</p>
+                            <p id="cates-price">159.00 TK</p>
                         </div>
                     </div>
                 </div>
                 <!-- coupon and calculation part -->
                 <div class="w-[330px] mt-10 p-3">
-                    <div>
+                    <div class="bg-[#FFF] mb-2">
                         <h3>Have coupon?</h3>
-                        <input class="border-gray-200 p-1" type="text" placeholder="Coupon code">
-                        <button onclick="applyButton()"
-                            class="bg-pink-600 text-base font-semibold text-white px-5 py-2 rounded-lg hover:bg-rose-900">Apply</button>
+                        <input id="coupon-code" class="border-gray-200 p-1" type="text" placeholder="Coupon code">
+                        <button id="apply-btn"
+                            class="bg-pink-600 text-base font-semibold text-white px-5 py-2 rounded-lg"
+                            disabled>Apply</button>
                     </div>
-                    <div>
-                        <div id="set-calculation" class=""></div>
+                    <div class="bg-white mt-2">
+                        <div id="set-item-list" class=""></div>
                         <div class="mt-2 border-t-2 ">
-                            <p id="total-price " class="">Total Price:</p>
-                            <p id="discount" class="">Discount:</p>
-                            <P id="grand-total" class="border-b-2">Total:</P>
+                            <p class="">Total Price: <span id="total-price">00</span> Tk</p>
+                            <p class="">Discount: <span id="discount">00</span> Tk</p>
+                            <P class="border-b-2">Total: <span id="grand-total">00</span> Tk</P>
                             <!-- Open the modal using ID.showModal() method -->
-                            <button class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900" onclick="my_modal_5.showModal()">Make Purchase</button>
+                            <button
+                                class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900"
+                                onclick="my_modal_5.showModal()">Make Purchase</button>
                             <dialog id="my_modal_5" class="modal">
-                                <form method="dialog" class="modal-box justify-center items-center text-center p-4 w-[350px] h-[350px]">
+                                <form method="dialog"
+                                    class="modal-box justify-center items-center text-center p-4 w-[350px] h-[350px]">
                                     <img src="./images/congo.png" class="w-36 h-36 mb-2 ml-20" alt="">
                                     <h3 class="font-bold text-4xl mb-2">Congratulations</h3>
                                     <p class="text-base font-normal mb-2">Your Purchase the product</p>
                                     <div class="modal-action justify-center items-center">
                                         <!-- if there is a button in form, it will close the modal -->
-                                        <button class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900">Go Home</button>
+                                        <button onclick="goHome()"
+                                            class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900">Go
+                                            Home</button>
                                     </div>
                                 </form>
                             </dialog>
-                            <!-- <button onclick="makePurchase()" class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900">Make Purchase</button> -->
                         </div>
                     </div>
                 </div>
@@ -139,7 +144,7 @@
             <div class="flex flex-col lg:flex-row mt-5 ml-20 w-8/12">
                 <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     <!-- card-1 -->
-                    <div class="card  shadow-md p-3 sm:p-0">
+                    <div onclick="relaxChair()" class="card  shadow-md p-3 sm:p-0">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod7.png" alt="Shoes" class="rounded-lg h-28 w-24 " />
                         </figure>
@@ -153,11 +158,11 @@
                                 <input type="radio" name="rating-2-4" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title text-lg font-semibold">Single Relax Chair</h2>
-                            <p class="text-base font-normal">49.00 TK</p>
+                            <p id="chair-price" class="text-base font-normal">185.00 TK</p>
                         </div>
                     </div>
                     <!-- card-2 -->
-                    <div class="card  shadow-md p-3">
+                    <div onclick="childrenPlay()" class="card  shadow-md p-3">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod8.png" alt="Shoes" class="rounded-lg w-24 h-28 " />
                         </figure>
@@ -171,11 +176,11 @@
                                 <input type="radio" name="rating-2-5" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title text-lg font-semibold">Children play</h2>
-                            <p class="text-base font-normal">299.00 TK</p>
+                            <p id="children-play-price" class="text-base font-normal">299.00 TK</p>
                         </div>
                     </div>
                     <!-- card-3 -->
-                    <div class="card  shadow-md p-3">
+                    <div onclick="flexibleSofa()" class="card  shadow-md p-3">
                         <figure class="px-10 py-10 bg-gray-100">
                             <img src="./images/prod9.png" alt="Shoes" class="rounded-lg w-28 h-28" />
                         </figure>
@@ -189,7 +194,7 @@
                                 <input type="radio" name="rating-2-6" class="mask mask-star-2 bg-orange-400" />
                             </div>
                             <h2 class="card-title text-lg font-semibold">Flexible Sofa</h2>
-                            <p class="text-base font-normal">339.00 TK</p>
+                            <p id="flexible-sofa" class="text-base font-normal">339.00 TK</p>
                         </div>
                     </div>
                 </div>

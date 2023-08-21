@@ -38,7 +38,7 @@
 
         </section>
     </header>
-    <main class="bg-[#F8F8F8]">
+    <main>
         <!-- Product Catagories  -->
         <!-- Sports wear section -->
         <section class="mt-12">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <!-- coupon and calculation part -->
-                <div class="w-[330px] mt-10 p-3">
+                <div class="w-[330px] p-3">
                     <div class="bg-[#FFF] mb-2">
                         <h3>Have coupon?</h3>
                         <input id="coupon-code" class="border-gray-200 p-1" type="text" placeholder="Coupon code">
@@ -109,16 +109,16 @@
                             class="bg-pink-600 text-base font-semibold text-white px-5 py-2 rounded-lg"
                             disabled>Apply</button>
                     </div>
-                    <div class="bg-white mt-2">
+                    <div class="bg-white mt-2 sm:mr-3">
                         <div id="set-item-list" class=""></div>
                         <div class="mt-2 border-t-2 ">
-                            <p class="">Total Price: <span id="total-price">00</span> Tk</p>
-                            <p class="">Discount: <span id="discount">00</span> Tk</p>
-                            <P class="border-b-2">Total: <span id="grand-total">00</span> Tk</P>
+                            <p class="">Total Price: <span id="total-price">0</span> Tk</p>
+                            <p class="">Discount: <span id="discount">0</span> Tk</p>
+                            <P class="border-b-2">Total: <span id="grand-total">0</span> Tk</P>
                             <!-- Open the modal using ID.showModal() method -->
                             <button
                                 class="bg-pink-600 text-base font-semibold text-white px-5 py-2 mt-3 rounded-lg ml-4 hover:bg-rose-900"
-                                onclick="my_modal_5.showModal()">Make Purchase</button>
+                                onclick="my_modal_5.showModal()" >Make Purchase</button>
                             <dialog id="my_modal_5" class="modal">
                                 <form method="dialog"
                                     class="modal-box justify-center items-center text-center p-4 w-[350px] h-[350px]">

@@ -50,6 +50,18 @@ function flexibleSofa() {
     setElementInnerText('total-price', price);
     addItemList('Flexible Sofa');
 }
+// Total price & enable apply button
+document.getElementById('total-price').addEventListener('change', function () {
+    const totalPrice = getValue('total-price');
+    const applyBtn = document.getElementById('apply-btn');
+    if (totalPrice > 200) {
+        applyBtn.removeAttribute('disabled')
+    }
+    else {
+        applyBtn.setAttribute('disabled', true);
+    }
+
+});
 // coupon code and enable apply button
 document.getElementById('coupon-code').addEventListener('keyup', function (event) {
     const couponCode = event.target.value;
@@ -59,21 +71,8 @@ document.getElementById('coupon-code').addEventListener('keyup', function (event
     } else {
         applyBtn.setAttribute('disabled', true);
     }
-})
-// Total price & enable apply button
-const applyBtn = document.getElementById('apply-btn');
-const totalValue = document.getElementById('total-price')
-function updateApplyButton() {
-    const initialTotalPrice = parseFloat(totalValue.textContent);
-    totalValue.textContent = initialTotalPrice;
-    if (initialTotalPrice > 200) {
-        applyBtn.removeAttribute('disabled');
-    }
-    else {
-        applyBtn.setAttribute('disabled', true)
-    }
-}
-updateApplyButton();
+});
+
 // Discount and Total calculate and set these in their position.
 document.getElementById('apply-btn').addEventListener('click', function () {
     var totalPrice = getInnerTextPrice('total-price');
@@ -85,7 +84,6 @@ document.getElementById('apply-btn').addEventListener('click', function () {
     var finalGrandTotal = secondGrandTotal + initialGrandTotal;
     grandTotal = finalGrandTotal.toFixed(2);
     setElementInnerText('grand-total', grandTotal);
-
 })
 
 // Reusable Function 
